@@ -18,8 +18,12 @@ program
   .parse(process.argv);
 
 if (program.args.length !== 0) {
+  var prog = program.args.join(' ');
+ 
+  console.log('Watching: '+program.path);
+  console.log('Command: '+prog);
   watch(program.path, { ignore: program.ignore || [] }, function() {
-    exec(program.args, function(error, stdout, stderr) {
+    exec(prog, function(error, stdout, stderr) {
       if (error)
         throw error;
       if (stdout)

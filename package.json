@@ -1,7 +1,7 @@
 {
   "name": "stalk",
   "description": "cli/lib for watching directories for changes",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/jgallen23/stalk",
   "author": "Greg Allen <@jgaui> (http://jga.me)",
   "repository": {

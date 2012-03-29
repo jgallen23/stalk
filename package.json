@@ -1,0 +1,21 @@
+{
+  "name": "stalk",
+  "description": "cli/lib for watching directories for changes",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jgallen23/stalk",
+  "author": "Greg Allen <@jgaui> (http://jga.me)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgallen23/stalk.git"
+  },
+  "dependencies": {
+    "aug": "*",
+    "commander": "*",
+    "debug": "*"
+  },
+  "devDependencies": {
+  },
+  "main": "lib/watch",
+  "bin": { "stalk": "./bin/stalk" },
+  "keywords": ["watch", "cli"]
+}

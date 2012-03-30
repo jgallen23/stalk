@@ -1,3 +1,9 @@
+
+0.0.5 / 2012-03-30 
+==================
+
+  * don't throw if error, spacer in between running cmd
+
 0.0.4 / 2012-03-29
 ==================
 

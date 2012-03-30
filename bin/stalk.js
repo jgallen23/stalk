@@ -24,12 +24,11 @@ if (program.args.length !== 0) {
   console.log('Command: '+prog);
   watch(program.path, { ignore: program.ignore || [] }, function() {
     exec(prog, function(error, stdout, stderr) {
-      if (error)
-        throw error;
       if (stdout)
         console.log(stdout);
       if (stderr)
         console.log(stderr);
+      console.log("-------------------------------------------------------------------------------");
     });
   });
 } else {

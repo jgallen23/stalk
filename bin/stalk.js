@@ -3,6 +3,7 @@
 var program = require('commander');
 var watch = require('../lib/watch');
 var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 var fs = require('fs');
 
 
@@ -12,25 +13,43 @@ var list = function(val) {
 
 program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
-  .option('-p, --path <path>', 'Path to watch [defaults to cwd]', process.cwd())
+  .option('-p, --path <path>', 'Path to watch [defaults to cwd]', process.cwd(), list)
   .option('-i, --ignore <path>', 'Paths to ignore [path1,path2]', list)
   .usage('[cmd]')
   .parse(process.argv);
 
+var isRunning = false;
+var cmd;
+
+var run = function(app, args) {
+  if (isRunning) {
+    cmd.kill('SIGHUP');
+  }
+  cmd = spawn(app, args);
+  isRunning = true;
+
+  cmd.stdout.on('data', function(data) {
+    console.log(data.toString());
+  });
+  cmd.stderr.on('data', function(data) {
+    console.log(data.toString());
+  });
+  cmd.on('exit', function() {
+  });
+  console.log("------------------------------------------");
+};
+
 if (program.args.length !== 0) {
   var prog = program.args.join(' ');
+  var app = program.args.shift();
+  var args = program.args;
  
   console.log('Watching: '+program.path);
   console.log('Command: '+prog);
   watch(program.path, { ignore: program.ignore || [] }, function() {
-    exec(prog, function(error, stdout, stderr) {
-      if (stdout)
-        console.log(stdout);
-      if (stderr)
-        console.log(stderr);
-      console.log("-------------------------------------------------------------------------------");
-    });
+    run(app, args);
   });
+  run(app, args);
 } else {
   process.stdout.write(program.helpInformation());
   program.emit('--help');

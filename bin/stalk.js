@@ -13,10 +13,12 @@ var list = function(val) {
 
 program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
-  .option('-p, --path <path>', 'Path to watch [defaults to cwd]', process.cwd(), list)
+  .option('-p, --path <path>', 'Paths to watch (defaults to cwd) [path1,path2]', process.cwd())
   .option('-i, --ignore <path>', 'Paths to ignore [path1,path2]', list)
   .usage('[cmd]')
   .parse(process.argv);
+
+program.path = list(program.path);
 
 var isRunning = false;
 var cmd;

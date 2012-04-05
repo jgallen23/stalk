@@ -1,4 +1,11 @@
 
+0.0.6 / 2012-04-05 
+==================
+
+  * --path will now accept multiple,paths
+  * added some example scripts
+  * switched to use spawn, will kill process if still running when a file changed
+
 0.0.5 / 2012-03-30 
 ==================
 

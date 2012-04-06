@@ -48,7 +48,8 @@ if (program.args.length !== 0) {
  
   console.log('Watching: '+program.path);
   console.log('Command: '+prog);
-  watch(program.path, { ignore: program.ignore || [] }, function() {
+  watch(program.path, { ignore: program.ignore || [] }, function(files) {
+    console.log('Files Changed: '+files.join(','));
     run(app, args);
   });
   run(app, args);

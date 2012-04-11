@@ -5,7 +5,7 @@ var port = 8001;
 var app = express.createServer();
 
 app.use(stalk.middleware([__dirname+'/public', __dirname+'/views']));
-
+app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname+'/views');
 app.get('/', function(req, res){
   res.render('index.jade', { layout: false });

@@ -1,4 +1,10 @@
 
+0.1.1 / 2012-04-11 
+==================
+
+  * fix for cache buster adding multiple ?t=
+  * added support for generic node server
+
 0.1.0 / 2012-04-11 
 ==================
 

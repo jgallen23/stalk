@@ -1,4 +1,15 @@
 
+0.1.0 / 2012-04-11 
+==================
+
+  * Merge branch 'feature/browser-refresh'
+  * use process.stdout.write instead of console.log
+  * add cache buster on updated css
+  * if stylesheet, don't refresh, just drop that on the page
+  * Merge branch 'feature/filename-callback' into feature/browser-refresh
+  * return files that were changed in callback
+  * initial work on browser refresh middleware
+
 0.0.6 / 2012-04-05 
 ==================
 

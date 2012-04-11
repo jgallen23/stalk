@@ -14,8 +14,9 @@
     "debug": "*"
   },
   "devDependencies": {
+    "express": "*",
+    "jade": "*"
   },
-  "main": "lib/watch.js",
   "bin": { "stalk": "./bin/stalk.js" },
   "keywords": ["watch", "cli"]
 }

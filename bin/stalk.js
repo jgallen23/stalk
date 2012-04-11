@@ -31,10 +31,10 @@ var run = function(app, args) {
   isRunning = true;
 
   cmd.stdout.on('data', function(data) {
-    console.log(data.toString());
+    process.stdout.write(data.toString());
   });
   cmd.stderr.on('data', function(data) {
-    console.log(data.toString());
+    process.stderr.write(data.toString());
   });
   cmd.on('exit', function() {
   });
@@ -48,7 +48,9 @@ if (program.args.length !== 0) {
  
   console.log('Watching: '+program.path);
   console.log('Command: '+prog);
-  watch(program.path, { ignore: program.ignore || [] }, function() {
+  watch(program.path, { ignore: program.ignore || [] }, function(files) {
+    console.log('');
+    console.log('Files Changed: '+files.join(','));
     run(app, args);
   });
   run(app, args);

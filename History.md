@@ -1,4 +1,13 @@
 
+0.2.0 / 2012-04-16 
+==================
+
+  * added option to delay refresh
+  * check if filename exists before trying to match
+  * be able to force refresh all stylesheets on change (good for @imports)
+  * reduced flicker when updating stylesheets
+  * added window._stalkRefreshAll var to force refresh all stylesheets on change
+
 0.1.1 / 2012-04-11 
 ==================
 

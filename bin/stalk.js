@@ -15,7 +15,7 @@ program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
   .option('-p, --path <path>', 'Paths to watch (defaults to cwd) [path1,path2]', process.cwd())
   .option('-i, --ignore <path>', 'Paths to ignore [path1,path2]', list)
-  .usage('[cmd]')
+  .usage('<cmd>')
   .parse(process.argv);
 
 program.path = list(program.path);
@@ -42,9 +42,9 @@ var run = function(app, args) {
 };
 
 if (program.args.length !== 0) {
+  var app = 'sh';
   var prog = program.args.join(' ');
-  var app = program.args.shift();
-  var args = program.args;
+  var args = ['-c', prog];
  
   console.log('Watching: '+program.path);
   console.log('Command: '+prog);

@@ -5,6 +5,7 @@ var watch = require('../lib/watch');
 var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
 var fs = require('fs');
+var path = require('path');
 
 
 var list = function(val) {
@@ -45,6 +46,14 @@ if (program.args.length !== 0) {
   var app = 'bash';
   var prog = program.args.join(' ');
   var args = ['-c', prog];
+
+  if (path.existsSync(path.join(process.cwd(), '.stalk'))) {
+    program.ignore = fs.readFileSync('.stalk', 'utf8')
+      .split('\n')
+      .filter(function(item) {
+        return item;
+      });
+  }
  
   console.log('Watching: '+program.path);
   console.log('Command: '+prog);

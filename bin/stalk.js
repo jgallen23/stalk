@@ -42,7 +42,7 @@ var run = function(app, args) {
 };
 
 if (program.args.length !== 0) {
-  var app = 'sh';
+  var app = 'bash';
   var prog = program.args.join(' ');
   var args = ['-c', prog];
  

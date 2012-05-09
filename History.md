@@ -1,4 +1,14 @@
 
+0.3.0 / 2012-05-08 
+==================
+
+  * read from .stalk config to set ignore
+  * error if maxed out on watchers
+  * use bash instead of sh
+  * fix for running with -- args
+  * make sure stylesheet, don't delete node, just update url
+  * upped restart time of polling
+
 0.2.0 / 2012-04-16 
 ==================
 

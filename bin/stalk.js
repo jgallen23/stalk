@@ -47,7 +47,7 @@ if (program.args.length !== 0) {
   var prog = program.args.join(' ');
   var args = ['-c', prog];
 
-  if (path.existsSync(path.join(process.cwd(), '.stalk'))) {
+  if (fs.existsSync(path.join(process.cwd(), '.stalk'))) {
     program.ignore = fs.readFileSync('.stalk', 'utf8')
       .split('\n')
       .filter(function(item) {

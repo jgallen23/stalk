@@ -6,6 +6,7 @@ var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
 var fs = require('fs');
 var path = require('path');
+var exists = fs.existsSync || path.existsSync;
 
 
 var list = function(val) {
@@ -47,7 +48,7 @@ if (program.args.length !== 0) {
   var prog = program.args.join(' ');
   var args = ['-c', prog];
 
-  if (path.existsSync(path.join(process.cwd(), '.stalk'))) {
+  if (exists(path.join(process.cwd(), '.stalk'))) {
     program.ignore = fs.readFileSync('.stalk', 'utf8')
       .split('\n')
       .filter(function(item) {

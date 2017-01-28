@@ -14,7 +14,7 @@
     "debug": "*"
   },
   "devDependencies": {
-    "express": "*",
+    "express": ">=4.14.1",
     "jade": "*"
   },
   "bin": { "stalk": "./bin/stalk.js" },

@@ -11,7 +11,7 @@
   "dependencies": {
     "aug": "*",
     "commander": "*",
-    "debug": "*"
+    "debug": ">=2.6.1"
   },
   "devDependencies": {
     "express": "*",
